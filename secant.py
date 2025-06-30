@@ -16,4 +16,4 @@ def secant(f, df_dx, x0, ε=1e-3, max_iter=100):
 
         if abs(x[i+1] - x[i]) < ε:
             break
-    return x
+    return np.array(x)

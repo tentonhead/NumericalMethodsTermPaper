@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-import labY as lab
-
-from assignment import f, df_dx, g
+from assignment import f, df_dx, g, e, Table
 from bisection import bisection
 from secant import secant
 from newton import newton
@@ -21,11 +19,22 @@ if __name__ == '__main__':
     x_fixed_point = fixed_point(g, x0, ε)
     x_newton      = newton(f, df_dx, x0, ε)
 
-    methods_names = ["bisection", "secant", "Newton", "fixed point"]
-    method = [x_bisection, x_secant, x_fixed_point, x_newton] 
+    methods_names = ["bisection", "secant", "Newton", "fixed_point"]
+    x = [x_bisection, x_secant, x_fixed_point, x_newton] 
+
     for i in range(4):
         print(f"Hi, {methods_names[i]}'s method!")
-        print(len(method[i]), x_bisection[-1])
+        print(len(x[i]), x[-1])
+        xi = x[i]
+        yi = f(xi)
+        ki = np.arange(len(xi))
+        εi = e(xi)
+        ti = Table([ki, xi, εi, yi],
+                   ["k", "x", "|x_k - x_k-1|", "f(x_k)"])
+        ti.print_tsv(methods_names[i]+".tsv")
+
+
+
 
     """
     methods = [bisection, secant, newton, fixed_point]
