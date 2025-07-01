@@ -1,7 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
-import labY as lab
 
 
 def fixed_point(g, x0, ε=1e-3, max_iter=100):

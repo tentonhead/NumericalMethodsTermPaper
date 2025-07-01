@@ -1,7 +1,5 @@
 import numpy as np
 
-#import labY as lab
-
 from assignment import f
 
 def bisection(f, l, r, ε=10**-3):

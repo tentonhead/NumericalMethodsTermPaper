@@ -1,10 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
-import labY as lab
-
-from assignment import f, df_dx
-from newton import newton
 
 
 def secant(f, df_dx, x0, ε=1e-3, max_iter=100):
